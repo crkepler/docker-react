@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+#tag is used only inside travis so it could be shorter
+before_install:
+  - docker build -t crkepler/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true crkepler/docker-react npm run test

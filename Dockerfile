@@ -16,6 +16,7 @@ RUN npm run build
 #define a new base image
 
 FROM nginx
+EXPOSE 80
 
 # copy the final React build code from the BUILDER phase to the NGINX html
 # folder (obtained from the NGINX container documentation)

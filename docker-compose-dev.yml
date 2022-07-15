@@ -9,6 +9,8 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
+      -
+  #create separate container just for test
   tests:
     build:
       context: .

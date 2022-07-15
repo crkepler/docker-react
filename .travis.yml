@@ -1,11 +1,14 @@
-sudo: required
 language: generic
+sudo: required
 
 services:
   - docker
 
+#before tests are run
 #tag is used only inside travis so it could be shorter
 before_install:
+  #uses .env file so the test suite can be run, which is the whole purpose of Travis.
+  #for a PROD build it'd be different (wouldn't be able to run the test suite in the same container).
   - docker build -t crkepler/docker-react -f Dockerfile.dev .
 
 script:
